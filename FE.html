@@ -71,12 +71,62 @@
             flex-direction: column;
             gap: 20px;
         }
+
+        .div-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .div-content img{
+            border-radius: 30px;
+            width: 400px;
+            margin-right: 20px;
+        }
+
+        .div-content div{
+            margin-left: 20px;
+        }
+        
+        .div-content div>p{
+            margin-top: 10px;
+        }
+
+        .div-content2>h1{
+            color: #D97652;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .div-content2>p{
+            text-align: center;
+        }
+        
+        .highlight{
+            color: #D97652;
+        }
+
+        .div-content3 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .div-content3 img {
+            border-radius: 30px;
+            width: 330px;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <a href="#"><img src="../FE/Logo-fin.png" alt=""></a>
+            <a href="#"><img src="./Logo-fin.png" alt=""></a>
             <ul>
                 <li><a href="">Home</a></li>
                 <li><a href="">About</a></li>
@@ -90,12 +140,32 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus sapiente accusamus autem natus exercitationem quasi eum debitis, similique laudantium delectus dolore a velit fuga praesentium molestias ullam esse, corrupti cumque.</p>
                 <a href="" class="download-btn">Download</a>
             </div>
-            <img src="../FE/고양이 1.png" alt="">
+            <img src="./고양이 1.png" alt="">
         </div>
     </header>
-
-
     <div>
+        <div class="div-content">
+            <img src="./img_4.png" alt="">
+            <div>
+                <h2>Lorem Ipsum is simply <p></p> dummy text of the printing <p></p>and
+                dummy text of the printing and dummy text</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <p>industry.</p>
+            </div>
+        
+        </div>
+
+        <div class="div-content2">
+            <h1>dummy text of the printing and dummy</h1>
+            <p>Lorem Ipsum is simply <span class="highlight">dummy text</span> of the printing and typesetting industry.
+                <p>
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
+        </div>
+
+        <div class="div-content3">
+            <img src="./img_1.png" alt="">
+            <img src="./img_2.png" alt="">
+            <img src="./img_3.png" alt="">
+        </div>
         
     </div>
     <footer>
