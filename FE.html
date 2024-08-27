@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <style>
-        
+        button{ cursor: pointer;}
 
         * {
             margin: 0;
@@ -32,11 +32,15 @@
             width: 100%;
         }
 
-        nav {
+        .header-nav {
+            background-color: #F2E9D8;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 30px 150px;
+            position: sticky;
+            top: 0px;
+            z-index: 9999;
         }
 
         nav>ul{
@@ -201,7 +205,7 @@
             width: 100%;
             padding: 30px;
             border-radius: 20px;
-            position: relative;
+            /* position: relative; */
             top: -75px;
         }
 
@@ -213,6 +217,7 @@
             color: white;
             text-align: center;
             border: none;
+            cursor: pointer;
         }
 
         form>div>i{
@@ -248,7 +253,6 @@
 
         .top-btn{
             color: grey;
-            border: none;
             border-radius: 100%;
             padding: 10px;
             display: flex;
@@ -256,27 +260,67 @@
             align-items: center;
             background-color: white;
             cursor: pointer;
-            position: absolute;
+            /* position: absolute; */
             right: 20px;
             bottom: 20px;
+            position: fixed;
+            border: 1px solid lightgray;
+            display: none;
+            z-index: 999;
         }
 
         .top-btn:hover {
             color: rgb(56, 55, 55);
         }
+
+        .modal {
+            background-image: url('./무제-1\ 1.png');
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px 5px #6868688c;
+            text-align: center;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 99999;
+            display: none;
+        }
+        .modal>h1 {
+            color: #D97652;
+        }
+        .modal>p {
+            color: black;
+        }
+        .modal-btn {
+            background-color: #D97652;
+            padding: 10px;
+            border-radius: 30px;
+            width: 150px;
+            color: white;
+            text-align: center;
+            border: none;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
+    <nav class="header-nav">
+        <a href="#"><img src="./Logo-fin.png" alt=""></a>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Support</a></li>
+            <li><a href="" class="download-btn">Download</a></li>
+        </ul>
+    </nav>
     <header>
-        <nav>
-            <a href="#"><img src="./Logo-fin.png" alt=""></a>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Support</a></li>
-                <li><a href="" class="download-btn">Download</a></li>
-            </ul>
-        </nav>
         <div class="header-content">
             <div>
                 <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
@@ -328,7 +372,6 @@
 
     </div>
     <footer>
-              
         <div class="footer-img">
             <div class="subscribe">         
                 <div class="subscribe-content">
@@ -336,7 +379,7 @@
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                             Lorem Ipsum has been the industry's standard dummy text </p>
                 </div>
-                <form action="">
+                <form>
                     <div>
                         <i class="far fa-envelope"></i>
                         <input type="text" placeholder="Enter your e-mail adress">
@@ -344,9 +387,17 @@
                     <button class="subscribe-btn">subscribe</button>
                 </form>
             </div>
-            <button class="top-btn"><i class="fas fa-arrow-up"></i></button>
+
+            <div class="modal hidden">
+                <img src="./cat 1.png" style="margin-bottom: 20px;">
+                
+                <h1 style="margin-bottom: 10px;">Thank you!</h1>
+                <p style="margin-bottom: 20px;">Lorem Ipsum is simply dummy text of the printing industry.</p>
+
+                <button class="modal-btn">OK! I Love HODU</button>
+            </div>
         </div>
-        <div>
+        <div id="footerNav">
             <img src="./Logo-fin.png" alt="">
             <ul>
                 <li><img src="./icon-blog.png" alt=""></li>
@@ -357,6 +408,8 @@
             
         </div>
     </footer>
+
+    <button class="top-btn" id="topBtn"><i class="fas fa-arrow-up"></i></button>
 </body>
 <script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
@@ -366,5 +419,60 @@
         "key" : "2keyr",
         "mapHeight" : "360"
     }).render();
+
+
+    // 이메일 유효성 검사 및 모달 표시
+    const subscribeBtn = document.querySelector(".subscribe-btn");
+    const modal = document.querySelector(".modal");
+    const modalBtn = document.querySelector(".modal-btn");
+    const form = document.querySelector("form");
+
+    subscribeBtn.onclick = function(event) {
+        event.preventDefault(); // 기본 폼 제출 방지
+
+        const emailInput = form.querySelector("input[type='text']");
+        const emailValue = emailInput.value;
+
+        // 이메일 유효성 검사
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailValue || !emailPattern.test(emailValue)) {
+            alert("유효한 이메일 주소를 입력하세요.");
+            return;
+        }
+
+        // 모달 창 표시
+        modal.style.display = "block";
+
+        // 모달의 OK 버튼 클릭 시
+        modalBtn.onclick = function() {
+            modal.style.display = "none"; // 모달 숨기기
+            form.submit(); // 폼 제출
+        };
+    };
+
+
+    // top-btn 관련 스크립트
+    const topBtn = document.getElementById("topBtn");
+    const header = document.querySelector("header");
+    const footerNav = document.getElementById("footerNav");
+
+    window.onscroll = function() {
+        const scrollY = window.scrollY;
+        const headerHeight = header.offsetHeight;
+        const footerNavTop = footerNav.getBoundingClientRect().top + window.scrollY;
+
+        // 버튼 표시 조건
+        if (scrollY > headerHeight && scrollY < footerNavTop - topBtn.offsetHeight) {
+            topBtn.style.display = "block";
+        } else {
+            topBtn.style.display = "none";
+        }
+    };
+    // footerNav 위에 있어야 하는데 안 되는 상황.
+
+    // 버튼 클릭 시 맨 위로 스크롤
+    topBtn.onclick = function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 </script>
 </html>
