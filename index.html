@@ -100,13 +100,6 @@
             box-shadow: 10px 10px 5px -2px lightgray;
         }
 
-        .div-content div{
-            
-        }
-        
-        .div-content div>p{
-        }
-
         .div-content2>h1{
             color: #D97652;
             text-align: center;
@@ -461,10 +454,10 @@
     window.onscroll = function() {
         const scrollY = window.scrollY;
         const headerHeight = header.offsetHeight;
-        const footerNavTop = footerNav.getBoundingClientRect().top + window.scrollY;
+        const footerNavTop = footerNav.offsetTop; 
 
         // 버튼 표시 조건
-        if (scrollY > headerHeight && scrollY < footerNavTop - topBtn.offsetHeight) {
+        if (scrollY > headerHeight && scrollY + window.innerHeight < footerNavTop) {
             topBtn.style.display = "block";
         } else {
             topBtn.style.display = "none";
@@ -476,5 +469,10 @@
     topBtn.onclick = function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    
+
+    
+
 </script>
 </html>
