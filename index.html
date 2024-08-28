@@ -6,7 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <style>
-        button{ cursor: pointer;}
+        button{ cursor: pointer;
+            border: none;
+        }
 
         * {
             margin: 0;
@@ -91,13 +93,18 @@
             align-items: center;
             justify-content: center;
             gap: 30px;
+            width: 100%;
             /* padding: 30px; */
         }
 
-        .div-content img{
+        .div-content>img{
             border-radius: 30px;
-            width: 400px;
+            width: 50%;
             box-shadow: 10px 10px 5px -2px lightgray;
+        }
+
+        .div-content>div{
+            width: 100%;
         }
 
         .div-content2>h1{
@@ -114,11 +121,6 @@
         }
 
         .div-content3 {
-            /* display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px; */
             display: grid;
             flex: none;
             gap: 20px;
@@ -156,6 +158,15 @@
             gap: 20px;
         }
 
+        .line>hr{
+            border: 1px solid lightgray;
+            width: 100%;
+        }
+
+        .line{
+            width: 100%;
+        }
+
         .map{
             display: flex;
             flex-direction: column;
@@ -167,17 +178,21 @@
             width: 100%;
         }        
         
-        footer > div:nth-of-type(2){
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        footer>div:nth-of-type(2){
             padding: 30px 150px;
         }
 
-        footer > div:nth-of-type(2) > ul{
+        #footerNav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #footerNav > ul{
             display: flex;
             gap: 10px;
         }
+
 
         .footer-img{
             background-image: url(./img_5.png);
@@ -266,6 +281,11 @@
             color: rgb(56, 55, 55);
         }
 
+        #topBtn.on {
+            position: absolute;
+            bottom: 350px;
+        }
+
         .modal {
             background-image: url('./무제-1\ 1.png');
             background-repeat: no-repeat;
@@ -303,6 +323,180 @@
             border: none;
             font-weight: bold;
         }
+
+        .header-menu{
+            display: none;
+        }
+
+        .side-menu{
+            background-color: #263140;
+            padding: 30px;
+            position: fixed;
+            right: 0;
+            width: 40%;
+            height: 100vh;
+            top: 0;
+            display: none;
+        }
+
+        .side-menu.open{
+            display:block;
+        }
+
+        .side-menu>button{
+            color: white;
+            background-color: transparent;
+            border: none;
+            
+        }
+
+        .side-nav{
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        footer>div:nth-of-type(2)>ul{
+                display: none;
+                color: lightgray;
+        }
+
+        @media screen and (max-width:800px) {
+            .header-nav{
+                padding: 30px;
+            }
+            
+            .header-nav>ul{
+                display: none;
+            }
+
+            .header-menu{
+                display: block;
+                background-color: transparent;
+                border: none;
+                font-size: 30px;
+            }
+
+            .header-content{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                padding: 30px 30px 0 30px;
+            }
+
+            .header-content>div{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .header-content>img{
+                width: 60%;
+            }
+
+            .main-container{
+                padding: 30px;
+                align-items: center;
+            }
+
+            .div-content{
+                display: flex;
+                flex-direction: column;
+
+            }
+            
+            .div-content>img{
+                width: 100%;
+            }
+
+            .div-content>div{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .div-content2{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .div-content3{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .div-content3>img{
+                width: 100%;
+            }
+
+            .footer-img{
+                padding: 50px 30px;
+                background-position: bottom;
+                background-size: cover;
+                
+            }
+
+            .subscribe{
+                width: 100%;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            form{
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            form>div{
+                background-color: white;
+                padding: 10px;
+                border-radius: 30px;
+                display: flex;
+                gap: 10px;
+            
+            }
+
+            .subscribe-btn{
+                align-self: end;
+            }
+
+            form>div>input{
+                width: 100%;
+            }
+
+            footer>div:nth-of-type(2){
+                padding: 30px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+
+            #footerNav{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            footer>div:nth-of-type(2)>ul{
+                display: block;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+
+        }
     </style>
 </head>
 <body>
@@ -314,13 +508,26 @@
             <li><a href="">Support</a></li>
             <li><a href="" class="download-btn">Download</a></li>
         </ul>
+        <button class="header-menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="side-menu">
+            <button class="close-btn"><i class="fas fa-arrow-right"></i></button>
+            <ul class="side-nav">
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Support</a></li>
+                <li><a href="" class="download-btn">Download</a></li>
+            </ul>
+        </div>
     </nav>
     <header>
         <div class="header-content">
             <div>
                 <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus sapiente accusamus autem natus exercitationem quasi eum debitis, similique laudantium delectus dolore a velit fuga praesentium molestias ullam esse, corrupti cumque.</p>
-                <a href="" class="download-btn">Download</a>
+                <button class="download-btn">Download</button>
             </div>
             <img src="./고양이 1.png" alt="">
         </div>
@@ -329,9 +536,9 @@
         <div class="div-content">
             <img src="./img_4.png" alt="">
             <div>
-                <h2>Lorem Ipsum is simply <p></p> dummy text of the printing <p></p>and
+                <h2>Lorem Ipsum is simply dummy text of the printing and
                 dummy text of the printing and dummy text</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting <p>industry.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </div>
         
         </div>
@@ -339,7 +546,7 @@
         <div class="div-content2">
             <h1>dummy text of the printing and dummy</h1>
             <p>Lorem Ipsum is simply <span class="highlight">dummy text</span> of the printing and typesetting industry.
-                <p>
+                <br>
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown</p>
         </div>
 
@@ -392,16 +599,24 @@
                 <button class="modal-btn">OK! I Love HODU</button>
             </div>
         </div>
-        <div id="footerNav">
-            <img src="./Logo-fin.png" alt="">
+        <div>
+            <div id="footerNav">
+                <img src="./Logo-fin.png" alt="">
+                <ul>
+                    <li><img src="./icon-blog.png" alt=""></li>
+                    <li><img src="./icon-insta.png" alt=""></li>
+                    <li><img src="./icon-facebook.png" alt=""></li>
+                    <li><img src="./icon-youtube.png" alt=""></li>
+                </ul>         
+            </div>
             <ul>
-                <li><img src="./icon-blog.png" alt=""></li>
-                <li><img src="./icon-insta.png" alt=""></li>
-                <li><img src="./icon-facebook.png" alt=""></li>
-                <li><img src="./icon-youtube.png" alt=""></li>
+                <li>About</li>
+                <li>Blog</li>
+                <li>Support</li>
+                <li>Terms of Use</li>
             </ul>
-            
         </div>
+        
     </footer>
 
     <button class="top-btn" id="topBtn"><i class="fas fa-arrow-up"></i></button>
@@ -445,8 +660,8 @@
         };
     };
 
-
-    // top-btn 관련 스크립트
+    //top-btn 관련 script
+    
     const topBtn = document.getElementById("topBtn");
     const header = document.querySelector("header");
     const footerNav = document.getElementById("footerNav");
@@ -455,24 +670,45 @@
         const scrollY = window.scrollY;
         const headerHeight = header.offsetHeight;
         const footerNavTop = footerNav.offsetTop; 
+        const documentHeight = document.documentElement.scrollHeight;
+        const windowHeight = window.innerHeight;
 
         // 버튼 표시 조건
-        if (scrollY > headerHeight && scrollY + window.innerHeight < footerNavTop) {
+        if (scrollY > headerHeight && scrollY + windowHeight < footerNavTop) {
             topBtn.style.display = "block";
         } else {
             topBtn.style.display = "none";
         }
+
+        // 버튼 위치 조정
+        const footerRect = footer.getBoundingClientRect();
+        if (footerRect.top < window.innerHeight) {
+            scrollTopBtn.style.bottom = `${footerRect.height + 10}px`; // 푸터 위로 위치 조정
+        } else {
+            scrollTopBtn.style.bottom = '60px'; // 기본 위치
+        }
+
     };
-    // footerNav 위에 있어야 하는데 안 되는 상황.
 
     // 버튼 클릭 시 맨 위로 스크롤
     topBtn.onclick = function() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    
+    const headerMenu = document.querySelector('.header-menu');
+    const sideMenu = document.querySelector('.side-menu');
+    const closeBtn = document.querySelector('.close-btn');
 
-    
+    // 메뉴 아이콘 클릭 이벤트
+    headerMenu.addEventListener('click', () => {
+        sideMenu.classList.add('open');
+    });
+
+    // 닫기 버튼 클릭 이벤트
+    closeBtn.addEventListener('click', () => {
+        sideMenu.classList.remove('open');
+    });
+
 
 </script>
 </html>
