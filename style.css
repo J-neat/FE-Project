@@ -1,0 +1,492 @@
+<style>
+        button{ cursor: pointer;
+            border: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        li {
+            list-style: none; /*동그라미 없애는 것*/
+        }
+
+        header {
+            background-color: #F2E9D8;
+            width: 100%;
+        }
+
+        body {
+            width: 100%;
+        }
+
+        .header-nav {
+            background-color: #F2E9D8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 150px;
+            position: sticky;
+            top: 0px;
+            z-index: 9999;
+        }
+
+        nav>ul{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .download-btn{
+            background-color: #D97652;
+            padding: 10px;
+            border-radius: 30px;
+            width: 100px;
+            color: white;
+            text-align: center;
+        }
+
+        .header-content{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            padding: 0 150px;
+        }
+
+        .header-content>img{
+            width: 400px;
+        }
+
+        .header-content>div{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-container{
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            padding: 100px 150px;
+            margin-bottom: 50px;
+        }
+
+        .div-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            /* padding: 30px; */
+        }
+
+        .div-content>img{
+            border-radius: 30px;
+            width: 50%;
+            box-shadow: 10px 10px 5px -2px lightgray;
+        }
+
+        .div-content>div{
+            width: 100%;
+        }
+
+        .div-content2>h1{
+            color: #D97652;
+            text-align: center;
+        }
+
+        .div-content2>p{
+            text-align: center;
+        }
+        
+        .highlight{
+            color: #D97652;
+        }
+
+        .div-content3 {
+            display: grid;
+            flex: none;
+            gap: 20px;
+            grid-auto-rows: min-content;
+            grid-template-columns: repeat(3, minmax(40px, 1fr));
+            grid-template-rows: repeat(2, min-content);
+            height: auto;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .div-content3 img {
+            border-radius: 30px;
+            width: 300px;
+        }
+
+        div>h3{
+            text-align: center;
+        }
+
+        .show>.show-btn{
+            background-color: #D97652;
+            padding: 10px;
+            border-radius: 30px;
+            width: 150px;
+            color: white;
+            text-align: center;
+        }
+
+        .show{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .line>hr{
+            border: 1px solid lightgray;
+            width: 100%;
+        }
+
+        .line{
+            width: 100%;
+        }
+
+        .map{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 30px;
+        }
+
+        #daumRoughmapContainer1724301615655{
+            width: 100%;
+        }        
+        
+        footer>div:nth-of-type(2){
+            padding: 30px 150px;
+        }
+
+        #footerNav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #footerNav > ul{
+            display: flex;
+            gap: 10px;
+        }
+
+
+        .footer-img{
+            background-image: url(./img/img_5.png);
+            width: 100%;
+            aspect-ratio: 4/1;
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 0 150px;
+            position: relative;
+        }
+
+        .subscribe{
+            background-color: #263140;
+            color: white;
+            display: flex;
+            align-items: center;
+            top: -50px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 20px;
+            position: relative;
+            top: -75px;
+        }
+
+        .subscribe-btn{
+            background-color: #D97652;
+            padding: 10px;
+            border-radius: 30px;
+            width: 100px;
+            color: white;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        form>div>i{
+            color: grey;
+        }
+
+        form{
+            width: 100%;
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+        }
+
+        form>div{
+            width: 100%;
+            margin-left: 10px;
+        }
+
+        .subscribe-content{
+            width: 100%;
+        }
+
+        input{
+            border: none;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        .top-btn{
+            color: grey;
+            border-radius: 100%;
+            padding: 10px;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            background-color: white;
+            cursor: pointer;
+            /* position: absolute; */
+            right: 20px;
+            bottom: 20px;
+            position: fixed;
+            border: 1px solid lightgray;
+            display: none;
+            z-index: 999;
+        }
+
+        .top-btn:hover {
+            color: rgb(56, 55, 55);
+        }
+
+        #topBtn.on {
+            position: absolute;
+            bottom: 350px;
+        }
+
+        .modal {
+            background-image: url('./img/무제-1\ 1.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 0 10px 5px #6868688c;
+            text-align: center;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 99999;
+            display: none;
+        }
+        .modal>h1 {
+            color: #D97652;
+        }
+        .modal>p {
+            color: black;
+        }
+        .modal-btn {
+            background-color: #D97652;
+            padding: 10px;
+            border-radius: 30px;
+            width: 150px;
+            color: white;
+            text-align: center;
+            border: none;
+            font-weight: bold;
+        }
+
+        .header-menu{
+            display: none;
+        }
+
+        .side-menu{
+            background-color: #263140;
+            padding: 30px;
+            position: fixed;
+            right: 0;
+            width: 40%;
+            height: 100vh;
+            top: 0;
+            display: none;
+        }
+
+        .side-menu.open{
+            display:block;
+        }
+
+        .side-menu>button{
+            color: white;
+            background-color: transparent;
+            border: none;
+            
+        }
+
+        .side-nav{
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        footer>div:nth-of-type(2)>ul{
+                display: none;
+                color: lightgray;
+        }
+
+        @media screen and (max-width:800px) {
+            .header-nav{
+                padding: 30px;
+            }
+            
+            .header-nav>ul{
+                display: none;
+            }
+
+            .header-menu{
+                display: block;
+                background-color: transparent;
+                border: none;
+                font-size: 30px;
+            }
+
+            .header-content{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                padding: 30px 30px 0 30px;
+            }
+
+            .header-content>div{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .header-content>img{
+                width: 60%;
+            }
+
+            .main-container{
+                padding: 30px;
+                align-items: center;
+            }
+
+            .div-content{
+                display: flex;
+                flex-direction: column;
+
+            }
+            
+            .div-content>img{
+                width: 100%;
+            }
+
+            .div-content>div{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .div-content2{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .div-content3{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .div-content3>img{
+                width: 100%;
+            }
+
+            .footer-img{
+                padding: 50px 30px;
+                background-position: bottom;
+                background-size: cover;
+                
+            }
+
+            .subscribe{
+                width: 100%;
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            form{
+                background-color: transparent;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            form>div{
+                background-color: white;
+                padding: 10px;
+                border-radius: 30px;
+                display: flex;
+                gap: 10px;
+            
+            }
+
+            .subscribe-btn{
+                align-self: end;
+            }
+
+            form>div>input{
+                width: 100%;
+            }
+
+            footer>div:nth-of-type(2){
+                padding: 30px;
+                display: flex;
+                justify-content: space-between;
+            }
+
+
+            #footerNav{
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            footer>div:nth-of-type(2)>ul{
+                display: block;
+                text-align: right;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+
+        }
